@@ -1,12 +1,28 @@
 
 use std::io;
+// use is a way to reduce the keywords to call a data from other module.
+use crate::folder::external_mod::section::Retangle;
+
+//in rust u need to specify the module tree if u dont create a file that import submudules
+// u cant acess the code as the follwing case.
+mod folder{
+    pub mod external_mod;
+}
+
+// the path to the source code is src/folder/external_mod{section{Retangle}}
+// mod represent scopes like directories it can be a folder, file or a fragmant of the code.
+
+
 fn main() {
     println!("Hello, world!");
 
+    let simple = Retangle::create(12,32);
+
+    print!("{:?}",simple);
 
     let condition = true;
     let number = if condition 
-        { println!("u get a sum!"); 
+        { println!("\n u get a sum!"); 
             sum(2, 2)} else { 6 };
 
     println!("{number}");
